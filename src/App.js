@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Player from "./pages/player";
+import Host from "./pages/host";
+import Join from "./pages/join";
+import NewGame from "./pages/new-game";
+import Game from "./pages/game";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/game/:gameId">
+            <Game />
+          </Route>
+          <Route path="/join/:gameId">
+            <Join />
+          </Route>
+          <Route path="/host/:gameId">
+            <Host />
+          </Route>
+          <Route path="/player/:gameId">
+            <Player />
+          </Route>
+          <Route path="/">
+            <NewGame />
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
