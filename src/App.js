@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Player from "./pages/player";
 import Host from "./pages/host";
@@ -23,7 +22,7 @@ function App() {
           <Route path="/join/:gameId">
             <Join />
           </Route>
-          <Route path="/host/:gameId">
+          <Route path="/secrethost/:gameId">
             <Host />
           </Route>
           <Route path="/player/:gameId">
