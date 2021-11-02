@@ -40,7 +40,16 @@ function Game(props) {
     <main className="control-pannel">
       <h1>Oti's Trivia: {game?.name}</h1>
       <section>
-        matrix
+        {
+          game?.categories?.map((c, cindex) => (
+            <div key={cindex} className={'matrix'+cindex}>
+              <div>{c.category}</div>
+              {c.questions.map((q, qindex) => (
+                <div key={qindex} className={q.answered ? 'answered' : 'pending'}>{q.points}</div>
+              ))}
+            </div>
+          ))
+        }
       </section>
       <section>
         <h2>Score board</h2>
