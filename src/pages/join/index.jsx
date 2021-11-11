@@ -3,6 +3,7 @@ import './join.css';
 import TextField from '@mui/material/TextField';
 import { useHistory, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
 function Join(props) {
   const [player, setPlayer] = useState('');
@@ -15,8 +16,10 @@ function Join(props) {
   
   const handleJoin = () => {
     //TODO: Call backend join game
-    localStorage.setItem(`${gameId}player`, JSON.stringify(player));
-    history.push(`/player/${gameId}`);
+    axios.post('http://localhost:3000/join/' + gameId, { player }).then(response => {
+      console.log(response)
+      history.push(`/player/${gameId}`);
+    });
   }
 
   return (

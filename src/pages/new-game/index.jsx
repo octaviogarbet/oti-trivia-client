@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
 function NewGame(props) {
   const [gameConfig, setGameConfig] = useState({
@@ -20,8 +21,11 @@ function NewGame(props) {
   const handleCreate = () => {
     //TODO: Call backend create game
     console.log(gameConfig);
-    localStorage.setItem('gameid', JSON.stringify(gameConfig));
-    history.push('game/gameid');
+    //localStorage.setItem('gameid', JSON.stringify(gameConfig));
+    axios.post('http://localhost:3000/game', gameConfig).then(response => {
+      console.log(response)
+      history.push(`game/${response.data.id}`);
+    })
   }
 
   const handleChangeTotalCategories = ($event) => {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   useParams
 } from "react-router-dom";
@@ -10,30 +11,10 @@ function Game(props) {
 
   useEffect(() => {
     //TODO: get data from backend and websockets
-    const savedData = JSON.parse(localStorage.getItem(gameId));
-    const categories = savedData.categories.map(c => {
-      const questions = [];
-      for (let index = 0; index < savedData.totalQuestions; index++) {
-        questions.push({points: (index * 25) + 25, answered: !index})
-      }
-      return {
-        category: c,
-        questions
-      }
+    axios.get('http://localhost:3000/game/' + gameId).then(response => {
+      console.log(response.data)
+      setGame(response.data)
     })
-    const dummyGame = {
-      name: savedData.name,
-      totalQuestions: savedData.totalQuestions,
-      totalCategories: savedData.totalCategories,
-      categories: categories,
-      answering: 'Oti',
-      nextQuestion: { category: savedData.categories[0], points: 50 },
-      answerOrder: ['Oti', 'Andres', 'Horacio'],
-      banned: ['Santi'],
-      scoreBoard: [{name: 'Oti', points: 25}, {name: 'Andres', points: 25}, {name: 'Horacio', points: 25}, {name: 'Santi', points: 25}]
-    }
-    setGame(dummyGame)
-    console.log(dummyGame)
   }, [gameId]);
 
   return (
@@ -41,7 +22,7 @@ function Game(props) {
       <h1>Oti's Trivia: {game?.name}</h1>
       <section>
         {
-          game?.categories?.map((c, cindex) => (
+          game?.pointsTable?.map((c, cindex) => (
             <div key={cindex} className={'matrix'+cindex}>
               <div>{c.category}</div>
               {c.questions.map((q, qindex) => (
