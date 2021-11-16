@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useParams
 } from "react-router-dom";
+import axios from 'axios';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -19,48 +20,37 @@ function Host(props) {
 
   useEffect(() => {
     //TODO: get data from backend and websockets
-    const savedData = JSON.parse(localStorage.getItem(gameId));
-    const categories = savedData.categories.map(c => {
-      const questions = [];
-      for (let index = 0; index < savedData.totalQuestions; index++) {
-        questions.push({points: (index * 25) + 25, answered: !index})
-      }
-      return {
-        category: c,
-        questions
-      }
+    axios.get('http://localhost:3000/game/' + gameId).then(response => {
+      console.log(response.data)
+      setGame(response.data)
     })
-    const dummyGame = {
-      name: savedData.name,
-      totalQuestions: savedData.totalQuestions,
-      totalCategories: savedData.totalCategories,
-      categories: categories,
-    }
-    setGame(dummyGame)
-    console.log(dummyGame)
   }, [gameId]);
   
   const handleStart = () => {
-
+    axios.put('http://localhost:3000/game/' + gameId + '/start', {}).then(response => {
+    })
   }
 
   const handleReset = () => {
-
+    axios.put('http://localhost:3000/game/' + gameId + '/reset', {}).then(response => {
+    })
   }
 
   const handleSkip = () => {
-
+    axios.put('http://localhost:3000/game/' + gameId + '/skip', {}).then(response => {
+    })
     setStep(1);
   }
 
   const handleCorrectAnswer = () => {
-
+    axios.put('http://localhost:3000/game/' + gameId + '/correct', {}).then(response => {
+    })
     setStep(1);
   }
 
   const handleWrongAnswer = () => {
-
-    setStep(1);
+    axios.put('http://localhost:3000/game/' + gameId + '/wrong', {}).then(response => {
+    })
   }
 
   const selectCategory = ($event) => {
@@ -68,7 +58,10 @@ function Host(props) {
   }
 
   const goToQuestion = () => {
-
+    axios.put('http://localhost:3000/game/' + gameId + '/answer', {category: currentCategory}).then(response => {
+      console.log(response.data)
+      setGame(response.data)
+    })
     setStep(2);
   }
 
@@ -78,7 +71,7 @@ function Host(props) {
         (step === 1) ? (
           <div className="control-pannel">
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-              <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
+              <InputLabel id="demo-simple-select-standard-label">Category</InputLabel>
               <Select
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"

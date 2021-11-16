@@ -10,7 +10,23 @@ function Game(props) {
   const [game, setGame] = useState({});
 
   useEffect(() => {
-    //TODO: get data from backend and websockets
+    //TODO: get data from backend and 
+    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId);
+    ws.onopen = () => {
+      // on connecting, do nothing but log it to the console
+      console.log('connected')
+    }
+    ws.onmessage = (evt) => {
+      // listen to data sent from the websocket server
+      const message = JSON.parse(evt.data)
+      //this.setState({dataFromServer: message})
+      console.log(message)
+    }
+
+    ws.onclose = () => {
+      console.log('disconnected')
+      // automatically try to reconnect on connection loss
+    }
     axios.get('http://localhost:3000/game/' + gameId).then(response => {
       console.log(response.data)
       setGame(response.data)

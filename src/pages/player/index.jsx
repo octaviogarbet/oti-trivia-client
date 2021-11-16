@@ -11,8 +11,25 @@ function Player(props) {
 
   useEffect(() => {
     //TODO: get data from backend and websockets
-    const savedData = JSON.parse(localStorage.getItem(gameId + 'player'));
+    const savedData = localStorage.getItem(gameId + 'player');
     console.log(savedData);
+    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId+"&player="+savedData);
+    ws.onopen = () => {
+      // on connecting, do nothing but log it to the console
+      console.log('connected')
+    }
+    ws.onmessage = (evt) => {
+      // listen to data sent from the websocket server
+      const message = JSON.parse(evt.data)
+      //this.setState({dataFromServer: message})
+      console.log(message)
+    }
+
+    ws.onclose = () => {
+      console.log('disconnected')
+      // automatically try to reconnect on connection loss
+    }
+
   }, [gameId]);
   
   const handlePush = () => {
