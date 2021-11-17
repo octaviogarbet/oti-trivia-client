@@ -6,14 +6,11 @@ import './player.css';
 
 function Player(props) {
   let { gameId } = useParams();
-
   const [game, setGame] = useState({banned: false, canPush: true});
+  const [wsState, setWsState] = useState(null);
 
   useEffect(() => {
-    //TODO: get data from backend and websockets
-    const savedData = localStorage.getItem(gameId + 'player');
-    console.log(savedData);
-    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId+"&player="+savedData);
+    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId+"&player="+localStorage.getItem(gameId + 'player'));
     ws.onopen = () => {
       // on connecting, do nothing but log it to the console
       console.log('connected')
@@ -21,7 +18,21 @@ function Player(props) {
     ws.onmessage = (evt) => {
       // listen to data sent from the websocket server
       const message = JSON.parse(evt.data)
-      //this.setState({dataFromServer: message})
+      let answering = false
+      if (message && message.body) {
+        let banned = false
+        if (message.body.banned.length) {
+          const inBanned = message.body.banned.find(b => b === localStorage.getItem(gameId + 'player'))
+          if (inBanned)
+            banned = true;
+        }
+        if (message.body.answerOrder.length) {
+          const inAnswering = message.body.answerOrder.find(b => b === localStorage.getItem(gameId + 'player'))
+          if (inAnswering)
+            answering = true;
+        }
+        setGame({banned, canPush: !answering})
+      }
       console.log(message)
     }
 
@@ -29,12 +40,17 @@ function Player(props) {
       console.log('disconnected')
       // automatically try to reconnect on connection loss
     }
+    setWsState(ws)
 
   }, [gameId]);
   
   const handlePush = () => {
     //TODO: call backend to push
-    setGame({banned: true, canPush: true})
+    try {
+      wsState.send(JSON.stringify({type: 'push'})) //send data to the server
+    } catch (error) {
+      console.log(error) // catch error
+    }
   }
 
   return (

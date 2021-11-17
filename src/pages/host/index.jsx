@@ -59,8 +59,7 @@ function Host(props) {
 
   const goToQuestion = () => {
     axios.put('http://localhost:3000/game/' + gameId + '/answer', {category: currentCategory}).then(response => {
-      console.log(response.data)
-      setGame(response.data)
+      //setGame(response.data)
     })
     setStep(2);
   }
@@ -77,11 +76,11 @@ function Host(props) {
                 id="demo-simple-select-standard"
                 value={currentCategory}
                 onChange={selectCategory}
-                label="Age"
+                label="Categoria"
               >
                 {
                   game?.categories?.map(c => (
-                    <MenuItem value={c.category} key={c.category} >{c.category}</MenuItem>
+                    <MenuItem value={c} key={c} >{c}</MenuItem>
                   ))
                 }
               </Select>

@@ -20,7 +20,8 @@ function Game(props) {
       // listen to data sent from the websocket server
       const message = JSON.parse(evt.data)
       //this.setState({dataFromServer: message})
-      console.log(message)
+      if (message.body)
+        setGame(message.body)
     }
 
     ws.onclose = () => {
@@ -71,7 +72,7 @@ function Game(props) {
           </tbody>
         </table>
       </section>
-      <section>
+      <section className={game?.canAnswer ? 'can' : 'wait'}>
         <h3>Answer order</h3>
         { game?.answerOrder?.map((item, index) => (<span key={index}>{item}</span>))}
         <h3>Banned</h3>
