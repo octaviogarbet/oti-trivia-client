@@ -4,6 +4,7 @@ import {
   useParams
 } from "react-router-dom";
 import './game.css';
+import logo from '../../assets/images/otilogo.png';
 
 function Game(props) {
   let { gameId } = useParams();
@@ -36,7 +37,9 @@ function Game(props) {
 
   return (
     <main className="control-pannel">
-      <h1>Oti's Trivia: {game?.name}</h1>
+      <div class="logo">
+      <img alt="Oti´s Dev Week Trivia" src={logo}/>
+      </div>
       <div className="main-box">
         <div className="main-container">
 
