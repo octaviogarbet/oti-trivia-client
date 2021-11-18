@@ -1,12 +1,25 @@
-html,body {
-  height:100%;
+* {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  background: rgb(28, 74, 237);
+  background: no-repeat
+    linear-gradient(
+      0deg,
+      rgba(28, 74, 237, 1) 0%,
+      rgba(55, 183, 255, 1) 38%,
+      rgba(0, 64, 187, 1) 100%
+    );
+}
+
+.logo img {
+  max-width: 300px;
+}
 
 .control-pannel {
   min-height: 100vh;
-  min-width: 100vw;
-  background-color: rgb(59, 109, 245);
   margin: 0;
   padding: 1rem;
   display: flex;
@@ -20,6 +33,7 @@ html,body {
 .main-container {
   flex: 1;
   display: flex;
+  gap: 20px;
 }
 
 .principal-info {
@@ -31,10 +45,11 @@ html,body {
 
 .board {
   flex: 1;
-  border-radius: 20px;
-  background-color: darkblue;
+  border-radius: 10px;
+  background-color: rgba(14, 34, 105, 1);
   display: flex;
   text-align: center;
+  padding: 10px;
 }
 
 .column {
@@ -44,25 +59,49 @@ html,body {
 }
 
 .category {
-  border-radius: 5px;
   color: white;
   margin: 5px;
+  padding: 25px;
+  font-size: 1.5625rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 .cat-0 {
-  background-color: skyblue;
+  background: rgba(48, 129, 250, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(31, 116, 244, 1) 0%,
+    rgba(81, 219, 211, 1) 100%
+  );
 }
 
 .cat-1 {
-  background-color: violet;
+  background: rgba(189, 30, 192, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(189, 30, 192, 1) 0%,
+    rgba(231, 98, 242, 1) 100%
+  );
 }
 
 .cat-2 {
-  background-color: green;
+  background: rgba(31, 128, 40, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(31, 128, 40, 1) 0%,
+    rgba(86, 218, 147, 1) 100%
+  );
 }
 
 .cat-3 {
-  background-color: purple;
+  background: rgba(120, 16, 35, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(120, 16, 35, 1) 0%,
+    rgba(161, 52, 188, 1) 100%
+  );
 }
 
 .points-column {
@@ -71,25 +110,65 @@ html,body {
 }
 
 .points {
-  border-radius: 5px;
   color: white;
   margin: 5px;
+  padding: 5px;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 -2px 0px rgba(0, 0, 0, 0.3);
 }
 
 .points-25 {
-  background-color: greenyellow;
+  background: rgba(118, 194, 21, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(118, 194, 21, 1) 0%,
+    rgba(155, 233, 57, 1) 100%
+  );
 }
 
 .points-50 {
-  background-color: yellow;
+  background: rgba(212, 195, 37, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(212, 195, 37, 1) 0%,
+    rgba(255, 234, 45, 1) 100%
+  );
 }
 
 .points-75 {
-  background-color: orange;
+  background: rgba(241, 135, 11, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(241, 135, 11, 1) 0%,
+    rgba(240, 182, 32, 1) 100%
+  );
 }
 
 .points-100 {
-  background-color: red;
+  background: rgba(202, 14, 14, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(202, 14, 14, 1) 0%,
+    rgba(244, 65, 63, 1) 100%
+  );
+}
+.points-125 {
+  background: rgba(44, 9, 118, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(44, 9, 118, 1) 0%,
+    rgba(89, 63, 244, 1) 100%
+  );
+}
+.points-150 {
+  background: rgba(7, 1, 21, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(7, 1, 21, 1) 0%,
+    rgba(23, 13, 87, 1) 100%
+  );
 }
 
 .answered {
@@ -97,7 +176,6 @@ html,body {
 }
 
 .score-table {
-
 }
 
 .row {
@@ -140,9 +218,19 @@ html,body {
 }
 
 .wait {
-    background-color: cornflowerblue;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background: rgba(244, 63, 63, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 234, 45, 1) 0%,
+    rgba(244, 63, 63, 1) 100%
+  );
 }
 
 .can {
-    background-color: greenyellow;
+  background-color: greenyellow;
 }
