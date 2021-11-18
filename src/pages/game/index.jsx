@@ -37,60 +37,64 @@ function Game(props) {
   return (
     <main className="control-pannel">
       <h1>Oti's Trivia: {game?.name}</h1>
-      <section>
-        {
-          game?.pointsTable?.map((c, cindex) => (
-            <div key={cindex} className={'matrix'+cindex}>
-              <div>{c.category}</div>
-              {c.questions.map((q, qindex) => (
-                <div key={qindex} className={q.answered ? 'answered' : 'pending'}>{q.points}</div>
-              ))}
-            </div>
-          ))
-        }
-      </section>
-      <section>
-        <h2>Score board</h2>
-        <table>
-          <thead>
-            <tr>
+      <div className="main-box">
+        <div className="main-container">
+
+          <div className="principal-info">
+            <section className="board">
               {
-                game?.scoreBoard?.map(player => (
-                  <th key={player.name}>{player.name}</th>
+                game?.pointsTable?.map((c, cindex) => (
+                  <div key={cindex} className="column">
+                    <div className={"category cat-"+cindex}>{c.category}</div>
+                    <div className="points-column">
+                      {c.questions.map((q, qindex) => (
+                        <div key={qindex} className={'points points-'+ q.points + ' ' + (q.answered ? 'answered' : 'pending')}>{q.points}</div>
+                      ))}
+                    </div>
+                  </div>
                 ))
               }
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
+            </section>
+            <section className="score-table">
+              <h2>Score </h2>
+              <div className="row">
               {
                 game?.scoreBoard?.map(player => (
-                  <td key={player.name}>{player.points}</td>
+                  <div className="score-box" key={player.name}>
+                    <div className="box-player">{player.name}</div>
+                    <div className="box-points">{player.points}</div>
+                  </div>
                 ))
               }
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section className={game?.canAnswer ? 'can' : 'wait'}>
-        <h3>Answer order</h3>
-        { game?.answerOrder?.map((item, index) => (<span key={index}>{item}</span>))}
-        <h3>Banned</h3>
-        { game?.banned?.map((item, index) => (<span key={index}>{item}</span>))}
-      </section>
-      <section>
-        {
-          game?.nextQuestion && (
-            <>{ game?.nextQuestion?.category } for {game?.nextQuestion?.points}</>
-          )
-        }
-        {
-          game?.answering && (
-            <>Answering: {game.answering}</>
-          )
-        }
+              </div>
+            </section>
+          </div>
+          <section className={'answers ' + (game?.canAnswer ? 'can' : 'wait')}>
+            <article className="answers-box">
+              <h3>Answer order</h3>
+              { game?.answerOrder?.map((item, index) => (<div key={index} className="answer-item">{item}</div>))}
+            </article>
+            <article className="answers-box">
+              <h3>Banned</h3>
+              { game?.banned?.map((item, index) => (<div key={index} className="answer-item">{item}</div>))}
+            </article>
+          </section>
+        </div>
         
-      </section>
+        <section>
+          {
+            game?.nextQuestion && (
+              <>{ game?.nextQuestion?.category } for {game?.nextQuestion?.points}</>
+            )
+          }
+          {
+            game?.answering && (
+              <>Answering: {game.answering}</>
+            )
+          }
+          
+        </section>
+      </div>
     </main>
   );
 }
