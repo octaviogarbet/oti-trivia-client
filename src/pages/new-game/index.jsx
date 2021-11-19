@@ -22,7 +22,7 @@ function NewGame(props) {
     //TODO: Call backend create game
     console.log(gameConfig);
     //localStorage.setItem('gameid', JSON.stringify(gameConfig));
-    axios.post('http://localhost:3000/game', gameConfig).then(response => {
+    axios.post('http://184.72.145.192:3000/game', gameConfig).then(response => {
       console.log(response)
       history.push(`game/${response.data.id}`);
     })

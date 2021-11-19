@@ -10,7 +10,7 @@ function Player(props) {
   const [wsState, setWsState] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId+"&player="+localStorage.getItem(gameId + 'player'));
+    const ws = new WebSocket("ws://184.72.145.192:3000/websocket?gameId="+gameId+"&player="+localStorage.getItem(gameId + 'player'));
     ws.onopen = () => {
       // on connecting, do nothing but log it to the console
       console.log('connected')

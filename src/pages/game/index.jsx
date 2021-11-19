@@ -12,7 +12,7 @@ function Game(props) {
 
   useEffect(() => {
     //TODO: get data from backend and 
-    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId);
+    const ws = new WebSocket("ws://184.72.145.192:3000//websocket?gameId="+gameId);
     ws.onopen = () => {
       // on connecting, do nothing but log it to the console
       console.log('connected')
@@ -29,7 +29,7 @@ function Game(props) {
       console.log('disconnected')
       // automatically try to reconnect on connection loss
     }
-    axios.get('http://localhost:3000/game/' + gameId).then(response => {
+    axios.get('http://184.72.145.192:3000/game/' + gameId).then(response => {
       console.log(response.data)
       setGame(response.data)
     })

@@ -20,36 +20,36 @@ function Host(props) {
 
   useEffect(() => {
     //TODO: get data from backend and websockets
-    axios.get('http://localhost:3000/game/' + gameId).then(response => {
+    axios.get('http://184.72.145.192:3000/game/' + gameId).then(response => {
       console.log(response.data)
       setGame(response.data)
     })
   }, [gameId]);
   
   const handleStart = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/start', {}).then(response => {
+    axios.put('http://184.72.145.192:3000/game/' + gameId + '/start', {}).then(response => {
     })
   }
 
   const handleReset = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/reset', {}).then(response => {
+    axios.put('http://184.72.145.192:3000/game/' + gameId + '/reset', {}).then(response => {
     })
   }
 
   const handleSkip = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/skip', {}).then(response => {
+    axios.put('http://184.72.145.192:3000/game/' + gameId + '/skip', {}).then(response => {
     })
     setStep(1);
   }
 
   const handleCorrectAnswer = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/correct', {}).then(response => {
+    axios.put('http://184.72.145.192:3000/game/' + gameId + '/correct', {}).then(response => {
     })
     setStep(1);
   }
 
   const handleWrongAnswer = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/wrong', {}).then(response => {
+    axios.put('http://184.72.145.192:3000/game/' + gameId + '/wrong', {}).then(response => {
     })
   }
 
@@ -58,7 +58,7 @@ function Host(props) {
   }
 
   const goToQuestion = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/answer', {category: currentCategory}).then(response => {
+    axios.put('http://184.72.145.192:3000/game/' + gameId + '/answer', {category: currentCategory}).then(response => {
       //setGame(response.data)
     })
     setStep(2);

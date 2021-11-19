@@ -16,7 +16,7 @@ function Join(props) {
   
   const handleJoin = () => {
     //TODO: Call backend join game
-    axios.post('http://localhost:3000/join/' + gameId, { player }).then(response => {
+    axios.post('http://184.72.145.192:3000/join/' + gameId, { player }).then(response => {
       localStorage.setItem(`${gameId}player`, player);
       history.push(`/player/${gameId}`);
     });
