@@ -71,7 +71,7 @@ function NewGame(props) {
   }
 
   return (
-    <div className="control-pannel">
+    <div className="admin-pannel">
       <TextField
         id="player-name"
         className="form-element"

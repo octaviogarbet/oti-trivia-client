@@ -51,7 +51,10 @@ function Game(props) {
                     <div className={"category cat-"+cindex}>{c.category}</div>
                     <div className="points-column">
                       {c.questions.map((q, qindex) => (
-                        <div key={qindex} className={'points points-'+ q.points + ' ' + (q.answered ? 'answered' : 'pending')}>{q.points}</div>
+                        <div
+                          key={qindex}
+                          className={'points points-'+ q.points + ' ' + (q.answered ? 'answered' : 'pending') + ' ' + (c.category === game?.nextQuestion?.category && q.points === game?.nextQuestion?.points && 'focus')}
+                        >{q.points}</div>
                       ))}
                     </div>
                   </div>
@@ -75,7 +78,7 @@ function Game(props) {
           <section className={'answers ' + (game?.canAnswer ? 'can' : 'wait')}>
             <article className="answers-box">
               <h3>Answer order</h3>
-              { game?.answerOrder?.map((item, index) => (<div key={index} className="answer-item">{item}</div>))}
+              { game?.answerOrder?.map((item, index) => (<div key={index} className={"answer-item " + (item === game.answering && 'answering')}>{item}</div>))}
             </article>
             <article className="answers-box">
               <h3>Banned</h3>

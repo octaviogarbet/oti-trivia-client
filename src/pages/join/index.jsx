@@ -23,7 +23,7 @@ function Join(props) {
   }
 
   return (
-    <div className="control-pannel">
+    <div className="join-pannel">
       <TextField
         id="player-name"
         label="Name"

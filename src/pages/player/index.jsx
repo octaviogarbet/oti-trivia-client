@@ -54,9 +54,9 @@ function Player(props) {
   }
 
   return (
-    <div className="control-pannel">
+    <div className="player-pannel">
       <div className="center-button">
-        <button title="Word Pass" className="button" disabled={!game.canPush || game.banned} onClick={() => {handlePush()}}>PUSH</button>
+        <button title="PUSH" className="button" disabled={!game.canPush || game.banned} onClick={() => {handlePush()}}>PUSH</button>
       </div>
     </div>
   );

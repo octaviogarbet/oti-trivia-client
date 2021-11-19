@@ -68,7 +68,7 @@ function Host(props) {
     <>
       {
         (step === 1) ? (
-          <div className="control-pannel">
+          <div className="host-pannel">
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-simple-select-standard-label">Category</InputLabel>
               <Select
@@ -86,17 +86,16 @@ function Host(props) {
               </Select>
             </FormControl>
             <div className="center-button">
-              <Button title="Word Pass" className="button"  onClick={() => {goToQuestion()}}>Go</Button>
+              <Button title="Word Pass" onClick={() => {goToQuestion()}}>Go</Button>
             </div>
           </div>
         ) :
-        <div className="control-pannel">
+        <div className="host-pannel">
           <div className="center-button">
             <Button variant="contained" onClick={() => {handleStart()}}>Start</Button>
             <Button variant="contained" onClick={() => {handleReset()}}>Reset</Button>
           </div>
           <div>
-            Player answering
             <Button variant="contained" onClick={() => {handleCorrectAnswer()}}>C</Button>
             <Button variant="contained" onClick={() => {handleWrongAnswer()}}>W</Button>
           </div>
