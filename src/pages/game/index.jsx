@@ -86,20 +86,6 @@ function Game(props) {
             </article>
           </section>
         </div>
-        
-        <section>
-          {
-            game?.nextQuestion && (
-              <>{ game?.nextQuestion?.category } for {game?.nextQuestion?.points}</>
-            )
-          }
-          {
-            game?.answering && (
-              <>Answering: {game.answering}</>
-            )
-          }
-          
-        </section>
       </div>
     </main>
   );

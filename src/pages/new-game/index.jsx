@@ -133,7 +133,7 @@ function NewGame(props) {
       </div>
 
       <div className="center-button">
-        <Button title="Word Pass" className="button"  onClick={() => {handleCreate()}}>Create</Button>
+        <Button title="Create"  onClick={() => {handleCreate()}}>Create</Button>
       </div>
     </div>
   );

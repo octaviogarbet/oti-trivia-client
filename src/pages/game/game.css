@@ -123,7 +123,7 @@ body {
 }
 
 .focus {
-  border: yellow 2px solid;
+  border: blue 2px solid;
 }
 
 .points-25 {
@@ -210,6 +210,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 0.25;
+  margin-right: 1rem;
 }
 
 .box-player {
@@ -251,6 +252,8 @@ body {
   background-color: rgb(240, 212, 160);
   color: white;
   border-radius: 5px;
+  margin: 3px;
+  padding: 0.8rem 0;
 }
 
 .answering {
@@ -272,5 +275,15 @@ body {
 }
 
 .can {
-  background-color: greenyellow;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background: rgba(244, 63, 63, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 234, 45, 1) 0%,
+    greenyellow 100%
+  );
 }

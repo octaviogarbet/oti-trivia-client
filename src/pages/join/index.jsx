@@ -33,7 +33,7 @@ function Join(props) {
         onChange={handleChangeName}
       />
       <div className="center-button">
-        <Button title="Word Pass" className="button"  onClick={() => {handleJoin()}}>Join</Button>
+        <Button title="Join" onClick={() => {handleJoin()}}>Join</Button>
       </div>
     </div>
   );
