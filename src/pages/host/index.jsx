@@ -91,15 +91,15 @@ function Host(props) {
           </div>
         ) :
         <div className="host-pannel">
-          <div className="center-button">
+          <div className="buttons-row">
             <Button variant="contained" onClick={() => {handleStart()}}>Start</Button>
             <Button variant="contained" onClick={() => {handleReset()}}>Reset</Button>
           </div>
-          <div>
+          <div className="buttons-row">
             <Button variant="contained" onClick={() => {handleCorrectAnswer()}}>C</Button>
             <Button variant="contained" onClick={() => {handleWrongAnswer()}}>W</Button>
           </div>
-          <div>
+          <div className="buttons-row">
             <Button variant="contained" onClick={() => {handleSkip()}}>Skip</Button>
           </div>
         </div>

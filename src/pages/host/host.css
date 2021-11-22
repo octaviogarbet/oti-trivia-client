@@ -1,4 +1,25 @@
 .host-pannel {
     background-color: white;
     padding: 1rem;
+    min-height: 100vh;
+}
+
+.buttons-row {
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+    .host-pannel {
+        background-color: white;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .buttons-row {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: unset;
+    }
 }
