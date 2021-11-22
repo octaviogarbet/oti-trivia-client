@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import './game.css';
 import logo from '../../assets/images/otilogo.png';
+import bg from '../../assets/images/trivial-bg.jpg';
 import * as myConst from '../../constants';
 
 function Game(props) {
@@ -35,7 +36,7 @@ function Game(props) {
   }, [gameId]);
 
   return (
-    <main className="control-pannel">
+    <main className="control-pannel" style={{ backgroundImage:`url(${bg})` }} >
       <div className="logo">
       <img alt="Oti´s Dev Week Trivia" src={logo}/>
       </div>
