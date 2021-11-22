@@ -8,6 +8,7 @@ import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import * as myConst from '../../constants';
 
 function NewGame(props) {
   const [gameConfig, setGameConfig] = useState({
@@ -19,11 +20,7 @@ function NewGame(props) {
   let history = useHistory();
   
   const handleCreate = () => {
-    //TODO: Call backend create game
-    console.log(gameConfig);
-    //localStorage.setItem('gameid', JSON.stringify(gameConfig));
-    axios.post('http://localhost:3000/game', gameConfig).then(response => {
-      console.log(response)
+    axios.post(myConst.API + 'game', gameConfig).then(response => {
       history.push(`game/${response.data.id}`);
     })
   }
@@ -33,7 +30,6 @@ function NewGame(props) {
     for (let index = 0; index < $event.target.value; index++) {
       categories.push('');
     }
-    console.log(categories)
     setGameConfig({...gameConfig, totalCategories: $event.target.value, categories });
   }
 

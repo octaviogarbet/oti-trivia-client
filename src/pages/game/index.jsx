@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import './game.css';
 import logo from '../../assets/images/otilogo.png';
+import * as myConst from '../../constants';
 
 function Game(props) {
   let { gameId } = useParams();
@@ -12,10 +13,10 @@ function Game(props) {
 
   useEffect(() => {
     //TODO: get data from backend and 
-    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId);
+    
+    const ws = new WebSocket(myConst.WS + "websocket?gameId="+gameId);
     ws.onopen = () => {
       // on connecting, do nothing but log it to the console
-      console.log('connected')
     }
     ws.onmessage = (evt) => {
       // listen to data sent from the websocket server
@@ -26,18 +27,16 @@ function Game(props) {
     }
 
     ws.onclose = () => {
-      console.log('disconnected')
       // automatically try to reconnect on connection loss
     }
-    axios.get('http://localhost:3000/game/' + gameId).then(response => {
-      console.log(response.data)
+    axios.get(myConst.API + 'game/' + gameId).then(response => {
       setGame(response.data)
     })
   }, [gameId]);
 
   return (
     <main className="control-pannel">
-      <div class="logo">
+      <div className="logo">
       <img alt="Oti´s Dev Week Trivia" src={logo}/>
       </div>
       <div className="main-box">
@@ -75,7 +74,7 @@ function Game(props) {
               </div>
             </section>
           </div>
-          <section className={'answers ' + (game?.canAnswer ? 'can' : 'wait')}>
+          <section className={'answers ' + (game?.canAnswer && 'can')}>
             <article className="answers-box">
               <h3>Answer order</h3>
               { game?.answerOrder?.map((item, index) => (<div key={index} className={"answer-item " + (item === game.answering && 'answering')}>{item}</div>))}

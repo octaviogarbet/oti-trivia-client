@@ -3,6 +3,7 @@ import {
   useParams
 } from "react-router-dom";
 import './player.css';
+import * as myConst from '../../constants';
 
 function Player(props) {
   let { gameId } = useParams();
@@ -10,10 +11,9 @@ function Player(props) {
   const [wsState, setWsState] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3000/websocket?gameId="+gameId+"&player="+localStorage.getItem(gameId + 'player'));
+    const ws = new WebSocket(myConst.WS + "websocket?gameId="+gameId+"&player="+localStorage.getItem(gameId + 'player'));
     ws.onopen = () => {
       // on connecting, do nothing but log it to the console
-      console.log('connected')
     }
     ws.onmessage = (evt) => {
       // listen to data sent from the websocket server
@@ -33,12 +33,10 @@ function Player(props) {
         }
         setGame({banned, canPush: !answering})
       }
-      console.log(message)
     }
 
     ws.onclose = () => {
       console.log('disconnected')
-      // automatically try to reconnect on connection loss
     }
     setWsState(ws)
 

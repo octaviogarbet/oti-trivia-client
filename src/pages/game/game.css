@@ -249,6 +249,17 @@ body {
   max-width: 20vw;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background: rgba(244, 63, 63, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 234, 45, 1) 0%,
+    rgba(244, 63, 63, 1) 100%
+  );
 }
 
 .answers-box {
@@ -272,30 +283,6 @@ body {
   border: yellow 2px solid;
 }
 
-.wait {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 1.5rem;
-  border-radius: 10px;
-  background: rgba(244, 63, 63, 1);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 234, 45, 1) 0%,
-    rgba(244, 63, 63, 1) 100%
-  );
-}
-
 .can {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 1.5rem;
-  border-radius: 10px;
-  background: rgba(244, 63, 63, 1);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 234, 45, 1) 0%,
-    greenyellow 100%
-  );
+  border: greenyellow 15px solid;
 }

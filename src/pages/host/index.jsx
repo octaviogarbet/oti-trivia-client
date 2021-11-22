@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import './host.css';
+import * as myConst from '../../constants';
 
 function Host(props) {
   let { gameId } = useParams();
@@ -20,36 +21,35 @@ function Host(props) {
 
   useEffect(() => {
     //TODO: get data from backend and websockets
-    axios.get('http://localhost:3000/game/' + gameId).then(response => {
-      console.log(response.data)
+    axios.get(myConst.API + 'game/' + gameId).then(response => {
       setGame(response.data)
     })
   }, [gameId]);
   
   const handleStart = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/start', {}).then(response => {
+    axios.put(myConst.API + 'game/' + gameId + '/start', {}).then(response => {
     })
   }
 
   const handleReset = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/reset', {}).then(response => {
+    axios.put(myConst.API + 'game/' + gameId + '/reset', {}).then(response => {
     })
   }
 
   const handleSkip = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/skip', {}).then(response => {
+    axios.put(myConst.API + 'game/' + gameId + '/skip', {}).then(response => {
     })
     setStep(1);
   }
 
   const handleCorrectAnswer = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/correct', {}).then(response => {
+    axios.put(myConst.API + 'game/' + gameId + '/correct', {}).then(response => {
     })
     setStep(1);
   }
 
   const handleWrongAnswer = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/wrong', {}).then(response => {
+    axios.put(myConst.API + 'game/' + gameId + '/wrong', {}).then(response => {
     })
   }
 
@@ -58,7 +58,7 @@ function Host(props) {
   }
 
   const goToQuestion = () => {
-    axios.put('http://localhost:3000/game/' + gameId + '/answer', {category: currentCategory}).then(response => {
+    axios.put(myConst.API + 'game/' + gameId + '/answer', {category: currentCategory}).then(response => {
       //setGame(response.data)
     })
     setStep(2);
