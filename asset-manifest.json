@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/oti-trivia-client/static/css/main.f1dc202d.chunk.css",
+    "main.js": "/oti-trivia-client/static/js/main.dbc87ce5.chunk.js",
+    "main.js.map": "/oti-trivia-client/static/js/main.dbc87ce5.chunk.js.map",
+    "runtime-main.js": "/oti-trivia-client/static/js/runtime-main.57411190.js",
+    "runtime-main.js.map": "/oti-trivia-client/static/js/runtime-main.57411190.js.map",
+    "static/js/2.f89076c6.chunk.js": "/oti-trivia-client/static/js/2.f89076c6.chunk.js",
+    "static/js/2.f89076c6.chunk.js.map": "/oti-trivia-client/static/js/2.f89076c6.chunk.js.map",
+    "static/js/3.f3c56b02.chunk.js": "/oti-trivia-client/static/js/3.f3c56b02.chunk.js",
+    "static/js/3.f3c56b02.chunk.js.map": "/oti-trivia-client/static/js/3.f3c56b02.chunk.js.map",
+    "index.html": "/oti-trivia-client/index.html",
+    "static/css/main.f1dc202d.chunk.css.map": "/oti-trivia-client/static/css/main.f1dc202d.chunk.css.map",
+    "static/js/2.f89076c6.chunk.js.LICENSE.txt": "/oti-trivia-client/static/js/2.f89076c6.chunk.js.LICENSE.txt",
+    "static/media/otilogo.9c0bbbd7.png": "/oti-trivia-client/static/media/otilogo.9c0bbbd7.png",
+    "static/media/trivial-bg.1e3b1823.jpg": "/oti-trivia-client/static/media/trivial-bg.1e3b1823.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57411190.js",
+    "static/js/2.f89076c6.chunk.js",
+    "static/css/main.f1dc202d.chunk.css",
+    "static/js/main.dbc87ce5.chunk.js"
+  ]
+}
