@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/oti-trivia-client/static/css/main.f1dc202d.chunk.css",
-    "main.js": "/oti-trivia-client/static/js/main.d663757a.chunk.js",
-    "main.js.map": "/oti-trivia-client/static/js/main.d663757a.chunk.js.map",
+    "main.js": "/oti-trivia-client/static/js/main.b1db3eea.chunk.js",
+    "main.js.map": "/oti-trivia-client/static/js/main.b1db3eea.chunk.js.map",
     "runtime-main.js": "/oti-trivia-client/static/js/runtime-main.57411190.js",
     "runtime-main.js.map": "/oti-trivia-client/static/js/runtime-main.57411190.js.map",
     "static/js/2.f2ad4265.chunk.js": "/oti-trivia-client/static/js/2.f2ad4265.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.57411190.js",
     "static/js/2.f2ad4265.chunk.js",
     "static/css/main.f1dc202d.chunk.css",
-    "static/js/main.d663757a.chunk.js"
+    "static/js/main.b1db3eea.chunk.js"
   ]
 }
