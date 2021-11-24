@@ -1,9 +1,13 @@
-.player-pannel{
+.player-pannel {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #E9E8E6;
+  background: linear-gradient(
+    0deg,
+    rgba(31, 116, 244, 1) 0%,
+    rgba(81, 219, 211, 1) 100%
+  );
   text-align: center;
 }
 
@@ -11,16 +15,39 @@
   border-radius: 50%;
   padding: 3rem;
   color: white;
-  background-color: #DE421A;
-  border: 0;
-  box-shadow: unset;
-  font-size: 22px;
-  height: 175px;
-  width: 175px;
+  background: radial-gradient(
+    rgba(255, 116, 116, 1),
+    rgba(238, 48, 48, 1),
+    rgba(207, 28, 28, 1)
+  );
+  border: 10px solid rgba(199, 185, 185, 1);
+  font-size: 2.6rem;
+  text-shadow: 0 -2px 0px rgba(138, 15, 15, 1);
+  font-weight: bold;
+  height: 300px;
+  width: 300px;
   cursor: pointer;
+  animation: press 1s ease infinite;
+}
+@keyframes press {
+  0% {
+    box-shadow: 0 0 10px 0 rgba(134, 255, 255, 1);
+  }
+  50% {
+    box-shadow: 0 0 40px 3px rgba(134, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px 0 rgba(134, 255, 255, 1);
+  }
 }
 
 .button:disabled {
+  opacity: 0.7;
   background-color: gray;
   cursor: not-allowed;
+  animation: none;
+  background: radial-gradient(
+    rgb(182, 107, 107),
+    rgb(87, 57, 57) rgba(207, 28, 28, 1)
+  );
 }
